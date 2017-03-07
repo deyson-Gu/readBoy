@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.guyaning.media.mediaplayer01.activity.MainActivity">
+
+    <!--标题栏-->
+    <include layout="@layout/titlebar" />
+    <!--内容区域-->
+    <FrameLayout
+        android:id="@+id/fl_contents"
+        android:layout_width="match_parent"
+        android:layout_weight="1"
+        android:layout_height="0dp">
+
+    </FrameLayout>
+
+    <!--切换按钮-->
+    <RadioGroup
+        android:id="@+id/rg_bottom_tag"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#11000000">
+
+        <RadioButton
+            android:id="@+id/rb_videos"
+            style="@style/buttom_button"
+            android:text="本地视频"
+            android:textColor="@drawable/drawable_rb_videotext_seletor"
+            android:drawableTop="@drawable/drawable_rb_video_seletor" />
+
+        <RadioButton
+            android:id="@+id/rb_netvideo"
+            android:text="网络视频"
+            style="@style/buttom_button"
+            android:drawableTop="@drawable/drawable_rb_netvideo_seletor" />
+
+        <RadioButton
+            android:id="@+id/rb_audio"
+            android:text="本地音频"
+            style="@style/buttom_button"
+            android:drawableTop="@drawable/drawable_rb_autio_seletor" />
+
+        <RadioButton
+            android:id="@+id/rb_netaudio"
+            android:text="网络音频"
+            style="@style/buttom_button"
+            android:drawableTop="@drawable/drawable_rb_netaudio_seletor" />
+    </RadioGroup>
+</LinearLayout>

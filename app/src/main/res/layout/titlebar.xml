@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.guyaning.media.mediaplayer01.view.TitleBar
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:background="#ff3097fd"
+    android:gravity="center_vertical"
+    android:layout_width="match_parent"
+    android:layout_height="50dp">
+
+    <ImageView
+        android:layout_marginLeft="8dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/ic_topbanner_logo" />
+
+    <TextView
+        android:background="@drawable/tv_bg_shape_selector"
+        android:drawablePadding="5dp"
+        android:layout_marginLeft="6dp"
+        android:id="@+id/tv_serach"
+        android:drawableLeft="@drawable/tv_drawable_selector"
+        android:textColor="@drawable/tv_text_selector"
+        android:textSize="14sp"
+        android:text="全网搜索"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="wrap_content" />
+
+
+    <RelativeLayout
+        android:id="@+id/rl_game"
+        android:layout_marginLeft="5dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/tv_game"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/ic_topbanner_game" />
+
+        <ImageView
+            android:layout_alignRight="@+id/tv_game"
+            android:layout_width="6dp"
+            android:layout_height="6dp"
+            android:background="@drawable/dot" />
+
+    </RelativeLayout>
+
+    <ImageView
+        android:layout_marginLeft="5dp"
+        android:id="@+id/iv_history"
+        android:layout_marginRight="8dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/ic_topbanner_record" />
+
+
+</com.guyaning.media.mediaplayer01.view.TitleBar>
