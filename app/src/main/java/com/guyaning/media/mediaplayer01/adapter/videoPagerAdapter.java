@@ -67,6 +67,7 @@ public class videoPagerAdapter extends BaseAdapter {
         Utils utils = new Utils();
         holder.tvTime.setText(utils.stringForTime(Integer.parseInt(mediaItem.getDuration())));
         holder.tvSize.setText(Formatter.formatFileSize(context, Long.parseLong(mediaItem.getSize())));
+
         return convertView;
     }
 

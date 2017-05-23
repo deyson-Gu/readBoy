@@ -2,18 +2,23 @@ package com.guyaning.media.mediaplayer01.pager;
 
 import android.content.ContentResolver;
 import android.content.Context;
+import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
+import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.os.SystemClock;
 import android.provider.MediaStore;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.guyaning.media.mediaplayer01.R;
+import com.guyaning.media.mediaplayer01.activity.SystemVideoPlayer;
 import com.guyaning.media.mediaplayer01.adapter.videoPagerAdapter;
 import com.guyaning.media.mediaplayer01.base.BasePager;
 import com.guyaning.media.mediaplayer01.bean.MediaItem;
@@ -73,13 +78,44 @@ public class VideoPager extends BasePager {
         listview = (ListView) view.findViewById(R.id.listview);
         tvNoMedia = (TextView) view.findViewById(R.id.tv_nomedia);
         pb = (ProgressBar) view.findViewById(R.id.pb_loading);
+
+        //设置listview的条目的点击事件
+        listview.setOnItemClickListener(new MyListviewOnclickListener());
         return view;
+    }
+
+     class MyListviewOnclickListener implements AdapterView.OnItemClickListener{
+
+        @Override
+        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+            Toast.makeText(context, mediaItems.get(position).toString()+"", Toast.LENGTH_SHORT).show();
+
+//            //点击实现系统播放
+//            Intent intent = new Intent();
+//            intent.setDataAndType(Uri.parse(mediaItems.get(position).getData()),"video/*");
+//            context.startActivity(intent);
+
+            //点击实现自定义播放
+//            Intent intent = new Intent(context,SystemVideoPlayer.class);
+//            intent.setDataAndType(Uri.parse(mediaItems.get(position).getData()),"video/*");
+//            context.startActivity(intent);
+//
+            //传递列表进行播放的切换操作
+            Intent intent = new Intent(context,SystemVideoPlayer.class);
+            Bundle bundle = new Bundle();
+            bundle.putSerializable("medislsit",mediaItems);
+            intent.putExtras(bundle);
+            intent.putExtra("position",position);
+            context.startActivity(intent);
+        }
     }
 
     @Override
     public void initData() {
         super.initData();
         LogUtil.e("本地视频数据初始化了");
+        //判断是否有权限
         getDataFromLocal();
     }
 
@@ -92,6 +128,7 @@ public class VideoPager extends BasePager {
             @Override
             public void run() {
                 super.run();
+
                 mediaItems = new ArrayList<MediaItem>();
                 ContentResolver Resolver = context.getContentResolver();
                 Uri uri = MediaStore.Video.Media.EXTERNAL_CONTENT_URI;
@@ -103,6 +140,7 @@ public class VideoPager extends BasePager {
                         MediaStore.Video.Media.ARTIST,        //音视频的演唱者
 
                 };
+
                 Cursor cursor = Resolver.query(uri, org, null, null, null);
                 if (cursor != null) {
                     while (cursor.moveToNext()) {

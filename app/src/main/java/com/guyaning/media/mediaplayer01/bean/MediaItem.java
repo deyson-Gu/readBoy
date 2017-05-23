@@ -1,11 +1,13 @@
 package com.guyaning.media.mediaplayer01.bean;
 
+import java.io.Serializable;
+
 /**
  * Created by Administrator on 2017/3/2.
  * 媒体域对象
  */
 
-public class MediaItem {
+public class MediaItem implements Serializable{
 
     private String name;
     private String duration;

@@ -90,6 +90,7 @@ public class MainActivity extends FragmentActivity {
 
 
     private void setFragment() {
+
         FragmentManager fg = getSupportFragmentManager();
 
         FragmentTransaction ft = fg.beginTransaction();
@@ -99,14 +100,12 @@ public class MainActivity extends FragmentActivity {
         ft.commit();
     }
 
-
     private BasePager getBasePager() {
         BasePager basePager = basePagers.get(position);
         if (basePager != null && !basePager.isInitData) {
             basePager.initData();  //初始化数据
             basePager.isInitData = true;
         }
-
         return basePager;
     }
 

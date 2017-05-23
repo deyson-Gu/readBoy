@@ -20,9 +20,15 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".activity.MainActivity">
+        <activity android:name=".activity.MainActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            />
 
-        </activity>
+        <activity android:name=".activity.SystemVideoPlayer"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            />
+
     </application>
 
 </manifest>
