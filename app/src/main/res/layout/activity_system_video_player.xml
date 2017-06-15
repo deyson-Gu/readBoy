@@ -7,8 +7,8 @@
 
     <com.guyaning.media.mediaplayer01.view.VideoView
         android:id="@+id/videoview"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
     <include
         layout="@layout/media_controller"
         android:id="@+id/mediaController"
