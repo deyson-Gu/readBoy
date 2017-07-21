@@ -1,5 +1,8 @@
 package com.guyaning.media.mediaplayer01.utils;
 
+import android.content.Context;
+import android.net.TrafficStats;
+
 import java.util.Formatter;
 import java.util.Locale;
 
@@ -7,6 +10,7 @@ public class Utils {
 
 	private  StringBuilder mFormatBuilder;
 	private  Formatter mFormatter;
+	private boolean isUri;
 
 	public Utils() {
 		// 转换成字符串的时间
@@ -36,5 +40,42 @@ public class Utils {
 			return mFormatter.format("%02d:%02d", minutes, seconds).toString();
 		}
 	}
+
+	/**
+	 * 判断播放的资源是否是网络资源
+	 * @param uri
+	 * @return
+	 */
+	public  boolean isNetUri(String uri){
+		isUri = false;
+		if(uri.toLowerCase().startsWith("http")||uri.toLowerCase().startsWith("rtsp")||uri.toLowerCase().startsWith("mms")){
+			isUri = true;
+		}
+		return isUri;
+	}
+
+
+	private long lastTotalRxBytes = 0;
+	private long lastTimeStamp = 0;
+	/**
+	 * 得到网络速度
+	 * 每隔两秒调用一次
+	 * @param context
+	 * @return
+	 */
+	public String getNetSpeed(Context context) {
+		String netSpeed = "0 kb/s";
+		long nowTotalRxBytes = TrafficStats.getUidRxBytes(context.getApplicationInfo().uid)==TrafficStats.UNSUPPORTED ? 0 :(TrafficStats.getTotalRxBytes()/1024);//转为KB;
+		long nowTimeStamp = System.currentTimeMillis();
+		long speed = ((nowTotalRxBytes - lastTotalRxBytes) * 1000 / (nowTimeStamp - lastTimeStamp));//毫秒转换
+
+		lastTimeStamp = nowTimeStamp;
+		lastTotalRxBytes = nowTotalRxBytes;
+		netSpeed  = String.valueOf(speed) + " kb/s";
+		return  netSpeed;
+	}
+
+
+
 
 }

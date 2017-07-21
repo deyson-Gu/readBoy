@@ -6,10 +6,11 @@ android {
     defaultConfig {
         applicationId "com.guyaning.media.mediaplayer01"
         minSdkVersion 16
-        targetSdkVersion 25
+        targetSdkVersion 22
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
     }
     buildTypes {
         release {
@@ -17,17 +18,29 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
-}
 
+}
+repositories {
+    mavenCentral() // jcenter() works as well because it pulls from Maven Central
+}
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-    compile 'com.android.support:appcompat-v7:25.1.1'
-    testCompile 'junit:junit:4.12'
     compile project(':easypermissions')
-    compile 'com.yanzhenjie:permission:1.0.5'
+    compile project(':vitamio')
+
+    compile 'com.android.support:appcompat-v7:25.1.1'
+    compile 'com.yanzhenjie:permission:1.0.8'
     compile 'com.jakewharton:butterknife:8.4.0'
+    compile 'com.lzy.net:okgo:3.0.4'
+    compile 'com.alibaba:fastjson:1.2.35'
+    compile 'com.github.bumptech.glide:glide:4.0.0-RC1'
+    compile 'com.android.support:support-v4:25.3.1'
+    compile 'com.android.support.constraint:constraint-layout:1.0.2'
+    compile 'com.android.support:design:25.3.1'
+    testCompile 'junit:junit:4.12'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.0.0-RC1'
     apt 'com.jakewharton:butterknife-compiler:8.4.0'
 }

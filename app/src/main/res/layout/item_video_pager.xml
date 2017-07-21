@@ -6,7 +6,7 @@
     >
     <ImageView
         android:id="@+id/iv_icon"
-        android:src="@drawable/video_default_icon"
+        android:background="@drawable/video_default_icon"
         android:layout_width="100dp"
         android:focusable="false"
         android:layout_height="100dp"

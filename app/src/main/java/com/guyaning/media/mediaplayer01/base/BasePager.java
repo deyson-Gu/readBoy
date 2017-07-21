@@ -1,10 +1,7 @@
 package com.guyaning.media.mediaplayer01.base;
 
 import android.content.Context;
-import android.support.v4.view.ViewPager;
 import android.view.View;
-
-import com.guyaning.media.mediaplayer01.utils.Utils;
 
 /**
  * Created by Administrator 基类Basepager
@@ -41,6 +38,5 @@ public abstract class BasePager {
     public void initData() {
 
     }
-
 
 }

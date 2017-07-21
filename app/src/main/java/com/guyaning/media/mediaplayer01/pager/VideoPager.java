@@ -55,7 +55,7 @@ public class VideoPager extends BasePager {
             SystemClock.sleep(2000);
             if (mediaItems != null && mediaItems.size() > 0) {
                 //设置数据
-                pagerAdapter = new videoPagerAdapter(context,mediaItems);
+                pagerAdapter = new videoPagerAdapter(context,mediaItems,false);
                 listview.setAdapter(pagerAdapter);
                 //隐藏文本
                 tvNoMedia.setVisibility(View.GONE);
@@ -90,17 +90,16 @@ public class VideoPager extends BasePager {
         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
             Toast.makeText(context, mediaItems.get(position).toString()+"", Toast.LENGTH_SHORT).show();
-
 //            //点击实现系统播放
 //            Intent intent = new Intent();
 //            intent.setDataAndType(Uri.parse(mediaItems.get(position).getData()),"video/*");
 //            context.startActivity(intent);
 
-            //点击实现自定义播放
+//            点击实现自定义播放
 //            Intent intent = new Intent(context,SystemVideoPlayer.class);
 //            intent.setDataAndType(Uri.parse(mediaItems.get(position).getData()),"video/*");
 //            context.startActivity(intent);
-//
+
             //传递列表进行播放的切换操作
             Intent intent = new Intent(context,SystemVideoPlayer.class);
             Bundle bundle = new Bundle();

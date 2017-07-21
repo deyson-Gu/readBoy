@@ -33,19 +33,12 @@ public class SplashActivity extends Activity {
                             // 申请权限。
                             AndPermission.with(SplashActivity.this)
                                     .requestCode(100)
-                                    .permission(Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.INTERNET,Manifest.permission.WRITE_EXTERNAL_STORAGE)
+                                    .permission(Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.INTERNET,Manifest.permission.WRITE_EXTERNAL_STORAGE,
+                                    Manifest.permission.WRITE_SETTINGS)
                                     .send();
                         }
                     }
                 }, 2000);
-    }
-
-
-
-    @Override
-    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
-        // 只需要调用这一句，其它的交给AndPermission吧，最后一个参数是PermissionListener。
-        AndPermission.onRequestPermissionsResult(requestCode, permissions, grantResults, listener);
     }
 
     private PermissionListener listener = new PermissionListener() {
@@ -74,14 +67,6 @@ public class SplashActivity extends Activity {
                         .setMessage("我们需要的一些权限被您拒绝或者系统发生错误申请失败，请您到设置页面手动授权，否则功能无法正常使用！")
                         .setPositiveButton("好，去设置")
                         .show();
-
-                // 第三种：自定义dialog样式。
-                // SettingService settingService =
-                //    AndPermission.defineSettingDialog(this, REQUEST_CODE_SETTING);
-                // 你的dialog点击了确定调用：
-                // settingService.execute();
-                // 你的dialog点击了取消调用：
-                // settingService.cancel();
             }
         }
     };

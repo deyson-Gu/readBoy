@@ -25,11 +25,13 @@ public class videoPagerAdapter extends BaseAdapter {
 
     private List<MediaItem> mediaItems;
     private ViewHolder holder;
+    private boolean  isAudio;
 
 
-    public videoPagerAdapter(Context context, ArrayList<MediaItem> mediaItems) {
+    public videoPagerAdapter(Context context, ArrayList<MediaItem> mediaItems,boolean isAudio) {
         this.context = context;
         this.mediaItems = mediaItems;
+        this.isAudio  = isAudio;
     }
 
     @Override
@@ -67,6 +69,10 @@ public class videoPagerAdapter extends BaseAdapter {
         Utils utils = new Utils();
         holder.tvTime.setText(utils.stringForTime(Integer.parseInt(mediaItem.getDuration())));
         holder.tvSize.setText(Formatter.formatFileSize(context, Long.parseLong(mediaItem.getSize())));
+
+        if(isAudio){
+            holder.ivIcon.setBackgroundResource(R.drawable.music_default_bg);
+        }
 
         return convertView;
     }
