@@ -1,26 +1,26 @@
 [
     {
         "merged": "D:\\asdemo\\MediaPlayer01\\easypermissions\\build\\intermediates\\res\\merged\\debug\\layout-v11\\notification_media_action.xml",
-        "source": "C:\\Users\\Administrator\\.android\\build-cache\\7cecde859e905c98f77c994c23e327d723d73d3e\\output\\res\\layout-v11\\notification_media_action.xml"
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\e5792d3b6405dcc3a55ce11adddc3b437319b06a\\output\\res\\layout-v11\\notification_media_action.xml"
     },
     {
         "merged": "D:\\asdemo\\MediaPlayer01\\easypermissions\\build\\intermediates\\res\\merged\\debug\\layout-v11\\notification_template_big_media_narrow_custom.xml",
-        "source": "C:\\Users\\Administrator\\.android\\build-cache\\7cecde859e905c98f77c994c23e327d723d73d3e\\output\\res\\layout-v11\\notification_template_big_media_narrow_custom.xml"
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\e5792d3b6405dcc3a55ce11adddc3b437319b06a\\output\\res\\layout-v11\\notification_template_big_media_narrow_custom.xml"
     },
     {
         "merged": "D:\\asdemo\\MediaPlayer01\\easypermissions\\build\\intermediates\\res\\merged\\debug\\layout-v11\\notification_template_big_media_narrow.xml",
-        "source": "C:\\Users\\Administrator\\.android\\build-cache\\7cecde859e905c98f77c994c23e327d723d73d3e\\output\\res\\layout-v11\\notification_template_big_media_narrow.xml"
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\e5792d3b6405dcc3a55ce11adddc3b437319b06a\\output\\res\\layout-v11\\notification_template_big_media_narrow.xml"
     },
     {
         "merged": "D:\\asdemo\\MediaPlayer01\\easypermissions\\build\\intermediates\\res\\merged\\debug\\layout-v11\\notification_media_cancel_action.xml",
-        "source": "C:\\Users\\Administrator\\.android\\build-cache\\7cecde859e905c98f77c994c23e327d723d73d3e\\output\\res\\layout-v11\\notification_media_cancel_action.xml"
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\e5792d3b6405dcc3a55ce11adddc3b437319b06a\\output\\res\\layout-v11\\notification_media_cancel_action.xml"
     },
     {
         "merged": "D:\\asdemo\\MediaPlayer01\\easypermissions\\build\\intermediates\\res\\merged\\debug\\layout-v11\\notification_template_big_media.xml",
-        "source": "C:\\Users\\Administrator\\.android\\build-cache\\7cecde859e905c98f77c994c23e327d723d73d3e\\output\\res\\layout-v11\\notification_template_big_media.xml"
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\e5792d3b6405dcc3a55ce11adddc3b437319b06a\\output\\res\\layout-v11\\notification_template_big_media.xml"
     },
     {
         "merged": "D:\\asdemo\\MediaPlayer01\\easypermissions\\build\\intermediates\\res\\merged\\debug\\layout-v11\\notification_template_big_media_custom.xml",
-        "source": "C:\\Users\\Administrator\\.android\\build-cache\\7cecde859e905c98f77c994c23e327d723d73d3e\\output\\res\\layout-v11\\notification_template_big_media_custom.xml"
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\e5792d3b6405dcc3a55ce11adddc3b437319b06a\\output\\res\\layout-v11\\notification_template_big_media_custom.xml"
     }
 ]
