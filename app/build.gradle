@@ -29,7 +29,7 @@ dependencies {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
     compile project(':easypermissions')
-    compile project(':vitamio')
+//    compile project(':vitamio')
 
     compile 'com.android.support:appcompat-v7:25.1.1'
     compile 'com.yanzhenjie:permission:1.0.8'

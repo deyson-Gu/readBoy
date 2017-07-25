@@ -29,7 +29,6 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import io.vov.vitamio.utils.Log;
 
 /**
  * Created by Administrator on 2017/2/27.
@@ -100,8 +99,8 @@ public class NetVideoPager extends BasePager {
             mediaItems.add(mediaItem);
         }
 
-        Log.e(trailers.size() + "----");
-        Log.e(mediaItems.size()+"----"+mediaItems.get(19).getName());
+        LogUtil.e(trailers.size() + "----");
+        LogUtil.e(mediaItems.size()+"----"+mediaItems.get(19).getName());
         setListener();
     }
 
@@ -165,7 +164,7 @@ public class NetVideoPager extends BasePager {
                     @Override
                     public void onSuccess(Response<String> response) {
                         VideoItem videoItem = JSON.parseObject(response.body(), VideoItem.class);
-                        Log.e(videoItem.getTrailers().toString());
+                        LogUtil.e(response.body()+"--------");
                         trailers = videoItem.getTrailers();
                         mHandler.sendEmptyMessage(100);
                     }

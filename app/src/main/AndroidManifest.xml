@@ -89,6 +89,13 @@
             android:name=".activity.AudioPlayerActivity"
             android:label="@string/title_activity_audio_player"
             android:theme="@style/AppTheme.NoActionBar"></activity>
+
+        <service android:name=".service.MusicPlayService">
+            <intent-filter>
+                <action android:name="com.guyaning.media.mediaPlayer01"/>
+            </intent-filter>
+        </service>
+
     </application>
 
 </manifest>

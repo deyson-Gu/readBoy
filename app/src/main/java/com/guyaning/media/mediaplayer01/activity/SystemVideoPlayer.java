@@ -2,11 +2,9 @@ package com.guyaning.media.mediaplayer01.activity;
 
 import android.Manifest;
 import android.app.Activity;
-import android.app.AlertDialog;
 import android.content.BroadcastReceiver;
 import android.content.ContentResolver;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.media.AudioManager;
@@ -460,7 +458,7 @@ public class SystemVideoPlayer extends Activity implements View.OnClickListener 
         @Override
         public boolean onError(MediaPlayer mp, int what, int extra) {
             Toast.makeText(getBaseContext(), "进入vitmio的播放图", Toast.LENGTH_SHORT).show();
-            startVitamioPlayer();
+//            startVitamioPlayer();
             return false;
         }
     }
@@ -468,25 +466,25 @@ public class SystemVideoPlayer extends Activity implements View.OnClickListener 
     /**
      * 播放出错的时候跳转到万能播放器
      */
-    private void startVitamioPlayer() {
-
-        if (videoview != null) {
-            videoview.stopPlayback();
-        }
-
-        Intent intent = new Intent(getBaseContext(), VitamioVideoPlayer.class);
-        if (mediaItems != null && mediaItems.size() > 0) {
-            Bundle bundle = new Bundle();
-            bundle.putSerializable("medislsit", mediaItems);
-            intent.putExtras(bundle);
-            intent.putExtra("position", position);
-        } else if (uri != null) {
-            intent.setData(uri);
-        }
-
-        startActivity(intent);
-        finish();
-    }
+//    private void startVitamioPlayer() {
+//
+//        if (videoview != null) {
+//            videoview.stopPlayback();
+//        }
+//
+//        Intent intent = new Intent(getBaseContext(), VitamioVideoPlayer.class);
+//        if (mediaItems != null && mediaItems.size() > 0) {
+//            Bundle bundle = new Bundle();
+//            bundle.putSerializable("medislsit", mediaItems);
+//            intent.putExtras(bundle);
+//            intent.putExtra("position", position);
+//        } else if (uri != null) {
+//            intent.setData(uri);
+//        }
+//
+//        startActivity(intent);
+//        finish();
+//    }
 
     class MyOnInfoListener implements MediaPlayer.OnInfoListener {
 
@@ -715,7 +713,7 @@ public class SystemVideoPlayer extends Activity implements View.OnClickListener 
             case R.id.btn_swich_player:
 
                 //弹出对话框，切换播放器
-                SwitchVitamioPlater();
+//                SwitchVitamioPlater();
                 break;
             case R.id.btn_exit:
                 finish();
@@ -744,19 +742,19 @@ public class SystemVideoPlayer extends Activity implements View.OnClickListener 
         handler.sendEmptyMessageDelayed(MIDEACONTRALLER, 5000);
     }
 
-    private void SwitchVitamioPlater() {
-        new AlertDialog.Builder(SystemVideoPlayer.this)
-
-                .setTitle("系统提示")
-                .setMessage("如果播放视频出现花屏的现象，请尝试切换播放器")
-                .setPositiveButton("确定", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        startVitamioPlayer();
-                    }
-                }).create().show();
-
-    }
+//    private void SwitchVitamioPlater() {
+//        new AlertDialog.Builder(SystemVideoPlayer.this)
+//
+//                .setTitle("系统提示")
+//                .setMessage("如果播放视频出现花屏的现象，请尝试切换播放器")
+//                .setPositiveButton("确定", new DialogInterface.OnClickListener() {
+//                    @Override
+//                    public void onClick(DialogInterface dialog, int which) {
+//                        startVitamioPlayer();
+//                    }
+//                }).create().show();
+//
+//    }
 
     /**
      * 判断并改变播放的状态
@@ -959,6 +957,7 @@ public class SystemVideoPlayer extends Activity implements View.OnClickListener 
 
     @Override
     protected void onDestroy() {
+        handler.removeCallbacksAndMessages(null);
         //先取消子类，再取消父类
         if (receiver != null) {
             unregisterReceiver(receiver);
