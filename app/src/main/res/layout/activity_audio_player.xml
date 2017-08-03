@@ -6,22 +6,23 @@
 
     <RelativeLayout
         android:id="@+id/rl_top"
+        android:layout_centerHorizontal="true"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <ImageView
-            android:id="@+id/iv_icon"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:src="@drawable/now_playing_matrix_01"
-            android:visibility="visible" />
+        <!--<ImageView-->
+            <!--android:id="@+id/iv_icon"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_centerHorizontal="true"-->
+            <!--android:src="@drawable/now_playing_matrix_01"-->
+            <!--android:visibility="visible" />-->
 
-        <!--<com.atguigu.mobileplayer2.view.BaseVisualizerView-->
-            <!--android:id="@+id/baseVisualizerView"-->
-            <!--android:layout_width="300dp"-->
-            <!--android:layout_height="100dp"-->
-            <!--android:layout_centerHorizontal="true" />-->
+        <com.guyaning.media.mediaplayer01.view.BaseVisualizerView
+            android:id="@+id/baseVisualizerView"
+            android:layout_width="300dp"
+            android:layout_height="100dp"
+            android:layout_centerHorizontal="true" />
 
 
         <TextView
@@ -126,11 +127,11 @@
 
     </LinearLayout>
 
-    <!--<com.atguigu.mobileplayer2.view.ShowLyricView-->
-        <!--android:id="@+id/showLyricView"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="match_parent"-->
-        <!--android:layout_above="@id/ll_bottom"-->
-        <!--android:layout_below="@id/rl_top" />-->
+    <com.guyaning.media.mediaplayer01.view.ShowLyricView
+        android:id="@+id/ShowLyricView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/ll_bottom"
+        android:layout_below="@id/rl_top" />
 
 </RelativeLayout>

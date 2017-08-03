@@ -62,4 +62,6 @@ interface IMusicService {
 
        void  seekTo(int progress);
 
+       int  getAudioSessionId();
+
 }

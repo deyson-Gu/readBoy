@@ -30,7 +30,7 @@ dependencies {
     })
     compile project(':easypermissions')
 //    compile project(':vitamio')
-
+    compile 'org.greenrobot:eventbus:3.0.0'
     compile 'com.android.support:appcompat-v7:25.1.1'
     compile 'com.yanzhenjie:permission:1.0.8'
     compile 'com.jakewharton:butterknife:8.4.0'
