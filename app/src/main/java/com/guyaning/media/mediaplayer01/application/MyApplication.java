@@ -2,6 +2,8 @@ package com.guyaning.media.mediaplayer01.application;
 
 import android.app.Application;
 
+import com.guyaning.media.mediaplayer01.R;
+import com.iflytek.cloud.SpeechUtility;
 import com.lzy.okgo.OkGo;
 import com.lzy.okgo.cache.CacheEntity;
 import com.lzy.okgo.cache.CacheMode;
@@ -18,6 +20,8 @@ public class MyApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
+
+        SpeechUtility.createUtility(MyApplication.this, "appid=" + getString(R.string.app_id));
 
         initOkGo();
 

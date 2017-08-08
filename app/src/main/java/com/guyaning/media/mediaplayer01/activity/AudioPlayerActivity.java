@@ -33,14 +33,12 @@ import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
 
 import java.io.File;
-
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 
 public class AudioPlayerActivity extends Activity {
-
 
     @BindView(R.id.tv_artist)
     TextView tvArtist;
@@ -63,13 +61,14 @@ public class AudioPlayerActivity extends Activity {
     Button btnAudioNext;
     @BindView(R.id.btn_lyrc)
     Button btnLyrc;
-
     @BindView(R.id.ll_bottom)
     LinearLayout llBottom;
 
+    //频谱跳动的自定义view
     @BindView(R.id.baseVisualizerView)
     BaseVisualizerView baseVisualizerView;
 
+    //展示歌词的自定义view
     @BindView(R.id.ShowLyricView)
     com.guyaning.media.mediaplayer01.view.ShowLyricView ShowLyricView;
 
@@ -85,9 +84,7 @@ public class AudioPlayerActivity extends Activity {
 
     private static final int SHOW_LYRIC = 101;
 
-
     private boolean notification;
-
 
     private Handler handler = new Handler() {
         @Override
@@ -261,6 +258,13 @@ public class AudioPlayerActivity extends Activity {
         mVisualizer.setEnabled(true);
     }
 
+    @Override
+    protected void onPause() {
+        super.onPause();
+        if(isFinishing()){
+            mVisualizer.release();
+        }
+    }
 
     //展示歌词
     private void showLyric() {

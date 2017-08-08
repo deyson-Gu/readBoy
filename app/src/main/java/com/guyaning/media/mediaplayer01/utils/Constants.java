@@ -12,7 +12,7 @@ public class Constants {
     /**
      * 搜索的路径
      */
-    public static final String SEARCH_URL = "http://hot.news.cntv.cn/index.php?controller=list&action=searchList&sort=date&n=20&wd=";
+    public static final String SEARCH_URL = "http://so.cntv.cn/service/xinwen_video_search.php?qtext=";
 
     /**
      * 网络音乐

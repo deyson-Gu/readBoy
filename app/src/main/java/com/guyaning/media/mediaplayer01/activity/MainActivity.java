@@ -1,13 +1,17 @@
 package com.guyaning.media.mediaplayer01.activity;
 
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.view.KeyEvent;
 import android.view.Window;
 import android.widget.FrameLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.Toast;
+
 import com.guyaning.media.mediaplayer01.R;
 import com.guyaning.media.mediaplayer01.base.BasePager;
 import com.guyaning.media.mediaplayer01.fragment.ReplaceFragment;
@@ -109,5 +113,29 @@ public class MainActivity extends FragmentActivity {
         return basePager;
     }
 
+   private boolean isExit = false;
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if(keyCode == event.KEYCODE_BACK){
+            if(position!=0){
+                position =0;
+                rgBottomTag.check(R.id.rb_videos);
+                return  true;
+            }else if(!isExit){
+                Toast.makeText(getBaseContext(),"再按一次退出",Toast.LENGTH_SHORT).show();
+                isExit = true;
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        isExit = false;
+                    }
+                }, 2000);
+                return  true;
+            }
+        }
+        System.exit(0);
+        return super.onKeyDown(keyCode, event);
+    }
 }
 
